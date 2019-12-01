@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concepts on Encompass Docs</title>
+    <link>https://moonsidegames.github.io/docs/encompass/concepts/</link>
+    <description>Recent content in Concepts on Encompass Docs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 22 May 2019 12:49:24 -0700</lastBuildDate>
+    
+	<atom:link href="https://moonsidegames.github.io/docs/encompass/concepts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Component</title>
+      <link>https://moonsidegames.github.io/docs/encompass/concepts/component/</link>
+      <pubDate>Wed, 22 May 2019 12:51:29 -0700</pubDate>
+      
+      <guid>https://moonsidegames.github.io/docs/encompass/concepts/component/</guid>
+      <description>A Component is a collection of related data.
+To define a Component, declare a struct which implements the IComponent interface.
+using Encompass; using System.Numerics; public struct VelocityComponent : IComponent { public Vector2 velocity; }  Components are attached to Entities with the SetComponent method.
+using Encompass; ... var worldBuilder = new WorldBuilder(); var entity = worldBuilder.CreateEntity(); worldBuilder.SetComponent(entity, new VelocityComponent { velocity = Vector2.Zero });  SetComponent can also be used from within an Engine.</description>
+    </item>
+    
+    <item>
+      <title>Message</title>
+      <link>https://moonsidegames.github.io/docs/encompass/concepts/message/</link>
+      <pubDate>Wed, 22 May 2019 13:10:43 -0700</pubDate>
+      
+      <guid>https://moonsidegames.github.io/docs/encompass/concepts/message/</guid>
+      <description>Similar to Components, Messages are collections of data.
+Messages are used to transmit data between Engines so they can manipulate the game state accordingly.
+To define a message, declare a struct which implements the IMessage interface.
+using Encompass; public struct MotionMessage : IMessage { public Vector2 motion; }  Messages are temporary and destroyed at the end of the frame.
+.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice-title:before{margin-right:8px;font-family:&#34;Font Awesome 5 Free&#34;</description>
+    </item>
+    
+    <item>
+      <title>Entity</title>
+      <link>https://moonsidegames.github.io/docs/encompass/concepts/entity/</link>
+      <pubDate>Wed, 22 May 2019 12:55:22 -0700</pubDate>
+      
+      <guid>https://moonsidegames.github.io/docs/encompass/concepts/entity/</guid>
+      <description>An Entity is a structure composed of a unique ID and a collection of Components.
+Entities do not have any implicit properties or behaviors. They are granted these by their collection of Components.
+There is no limit to the amount of Components an Entity may have, but Entities may only have a single Component of a particular type.
+Entities can also be destroyed, permanently removing them and their components from the World.</description>
+    </item>
+    
+    <item>
+      <title>Engine</title>
+      <link>https://moonsidegames.github.io/docs/encompass/concepts/engine/</link>
+      <pubDate>Wed, 22 May 2019 13:01:28 -0700</pubDate>
+      
+      <guid>https://moonsidegames.github.io/docs/encompass/concepts/engine/</guid>
+      <description>An Engine is the Encompass notion of an ECS System. Much like the engine on a train, your Engines make the simulation move along.
+.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice-title:before{margin-right:8px;font-family:&#34;Font Awesome 5 Free&#34;,FontAwesome;font-weight:400}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning .notice-title:before{content:&#39;\f071&#39;}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info .notice-title:before{content:&#39;\f05a&#39;}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note .notice-title:before{content:&#39;\f06a&#39;}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip .notice-title:before{content:&#39;\f058&#39;}.notice.tip{background:#e6f9e6}I never liked the term System. It is typically used to mean structures in game design and I found this confusing when discussing code implementation vs design.
+ Engines may read any Entities and Components in the game world, read and send messages, and create and update Entities and Components.</description>
+    </item>
+    
+    <item>
+      <title>Renderer</title>
+      <link>https://moonsidegames.github.io/docs/encompass/concepts/renderer/</link>
+      <pubDate>Wed, 22 May 2019 14:16:06 -0700</pubDate>
+      
+      <guid>https://moonsidegames.github.io/docs/encompass/concepts/renderer/</guid>
+      <description>A Renderer is responsible for reading the game state and telling the game engine what to draw to the screen.
+.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice-title:before{margin-right:8px;font-family:&#34;Font Awesome 5 Free&#34;,FontAwesome;font-weight:400}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning .notice-title:before{content:&#39;\f071&#39;}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info .notice-title:before{content:&#39;\f05a&#39;}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note .notice-title:before{content:&#39;\f06a&#39;}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip .notice-title:before{content:&#39;\f058&#39;}.notice.tip{background:#e6f9e6}Remember: Encompass isn&amp;rsquo;t a game engine and it doesn&amp;rsquo;t have a rendering system. So Renderers aren&amp;rsquo;t actually doing the rendering,it is just a way to structure how we tell the game engine what to render.</description>
+    </item>
+    
+    <item>
+      <title>World Builder</title>
+      <link>https://moonsidegames.github.io/docs/encompass/concepts/world_builder/</link>
+      <pubDate>Wed, 22 May 2019 13:40:25 -0700</pubDate>
+      
+      <guid>https://moonsidegames.github.io/docs/encompass/concepts/world_builder/</guid>
+      <description>WorldBuilder is used to construct a World from Engines, Renderers, and an initial state of Entities, Components, and Messages.
+The WorldBuilder enforces certain rules about Engine structure. It is forbidden to have messages create cycles between Engines, and no Component may be mutated by more than one Engine without declaring a priority.
+The WorldBuilder uses Engines and their Message read/send information to determine a valid ordering of the Engines, which is given to the World.</description>
+    </item>
+    
+    <item>
+      <title>World</title>
+      <link>https://moonsidegames.github.io/docs/encompass/concepts/world/</link>
+      <pubDate>Wed, 22 May 2019 12:51:08 -0700</pubDate>
+      
+      <guid>https://moonsidegames.github.io/docs/encompass/concepts/world/</guid>
+      <description>World is the pie crust that contains all the delicious Encompass ingredients together.
+The World&amp;rsquo;s Update function drives the simulation and should be controlled from your engine&amp;rsquo;s update loop.
+The World&amp;rsquo;s Draw function tells the Renderers to draw the scene.
+In MonoGame, the game loop looks something like this:
+using Encompass; using Microsoft.Xna.Framework; public class MyGame : Game { private World world; SpriteBatch spriteBatch; RenderTarget2D gameRenderTarget; RenderTarget2D levelBrowserRenderTarget; RenderTarget2D uiRenderTarget; .</description>
+    </item>
+    
+  </channel>
+</rss>
